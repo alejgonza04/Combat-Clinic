@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import User from '../models/user.js';
 
-const SECRET_KEY = process.env.JWT_SECRET || 'your_secret_key'; // use environment variable for the secret key
+const SECRET_KEY = process.env.JWT_SECRET || 'fa74e12b57f8da3e73af3d43cd4bba46378d9096a745ace0ab3325a7bf2a346a'; // use environment variable for the secret key
 
 export const signin = async (req, res) => {
     console.log('Signin request received');
@@ -23,13 +23,13 @@ export const signin = async (req, res) => {
 }
 
 export const signup = async (req, res) => {
-    const { fullName, email, password } = req.body;
+    const { name, email, password } = req.body;
     try {
         const existingUser = await User.findOne({ email });
         if(existingUser) return res.status(400).json({ message: "User already exists" });
 
         const hashedPassword = await bcrypt.hash(password, 12);
-        const result = await User.create({ fullName, email, password: hashedPassword });
+        const result = await User.create({ name, email, password: hashedPassword });
 
         const token = jwt.sign({ email: result.email, id: result._id}, SECRET_KEY, { expiresIn: "1h" });
         res.status(200).json({ result: result, token });
