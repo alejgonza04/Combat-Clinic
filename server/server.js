@@ -11,10 +11,9 @@ import passport from 'passport';
 dotenv.config();
 
 const app = express();
-passportConfig(passport);
 app.use(cors({
     origin: 'https://verdant-fairy-45e354.netlify.app' // Allow requests from this origin
-  }));
+   }));
 app.use(express.json());
 
 connectDB();
@@ -23,7 +22,8 @@ app.get('/', (req, res) => {
     res.send('Hello, World!');
 });
 
-app.use('/sessions', sessionRoutes);
+app.use('/addsession', sessionRoutes); // Route for adding sessions
+app.use('/sessions', sessionRoutes); // Route for retrieving sessions
 app.use('/user', userRoutes);
 
 const startServer = async () => {
