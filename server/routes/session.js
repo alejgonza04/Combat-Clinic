@@ -5,6 +5,6 @@ import auth from '../middleware/auth.js';
 const router = express.Router();
 
 router.get('/', getSessions);
-router.post('/', passport.authenticate('jwt', { session: false }), addSession);
+router.post('/', addSession);
 
 export default router;
