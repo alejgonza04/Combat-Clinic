@@ -36,7 +36,7 @@ text-align: left;
 `;
 
 async function loginUser(credentials) {
-  return fetch('https://combat-clinic.onrender.com/user/signin', {
+  return fetch('http://localhost:8080/user/signin', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -49,21 +49,20 @@ async function loginUser(credentials) {
 const SignIn = ({ setToken }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  
+  const [userEmail, setUserEmail] = useState('');
+
   const handleSubmit = async (e) => {
-    if (e) {
-      e.preventDefault();
+      if (e) {
+        e.preventDefault();
+      }
+      const credentials = { email, password };  // Combine email and password
+      const response = await loginUser(credentials);  // Call loginUser with credentials
+      const token = response.token;
+      localStorage.setItem('token', token);
+      console.log('Token:', token);
+      setToken(token);
     }
-    const credentials = { email, password };
-    const response = await loginUser(credentials);
-    console.log('Response:', response);
-    if (response.token) {
-      setToken(response.token);
-      localStorage.setItem('token', response.token);
-    } else {
-      console.error('Login failed:', response.message);
-    }
-  }
+  
   return <Container>
       <div>
         <Title>Welcome to</Title>
