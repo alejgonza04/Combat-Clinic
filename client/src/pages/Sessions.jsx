@@ -119,7 +119,6 @@ padding: 10px;
 
 const Sessions = () => {
     const { sessions } = useSession();
-    const [sessionData, setSessionData] = useState([]);
     
     const getImage = (sessionType) => {
       switch(sessionType) {
