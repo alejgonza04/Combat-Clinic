@@ -6,12 +6,12 @@ export const useSession = () => useContext(SessionContext);
 
 export const SessionProvider = ({ children }) => {
     const [sessions, setSessions] = useState([]);
-
     useEffect(() => {
         const fetchSessions = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await fetch('http://localhost:8080/sessions', {
+                const userEmail = localStorage.getItem('email'); // Retrieve the user's email from local storage
+                const response = await fetch(`http://localhost:8080/sessions/${userEmail}`, { // Pass the user's email in the URL
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
@@ -25,6 +25,7 @@ export const SessionProvider = ({ children }) => {
                 console.error('Fetch sessions error:', error.message);
             }
         };
+        
     
         fetchSessions();
     }, []);
