@@ -34,6 +34,15 @@ const TextAlign = styled.div`
 text-align: left;
 `;
 
+const ErrorText = styled.div`
+font-size: 20px;
+text-align: center;
+color: ${({ theme }) => theme.red};
+@media (max-width: 450px) {
+  font-size: 14px;
+}
+`;
+
 async function registerUser(credentials) {
   return fetch('http://localhost:8080/user/signup', {
     method: 'POST',
@@ -44,8 +53,6 @@ async function registerUser(credentials) {
   })
     .then((data) => data.json());
 }
-
-
 
 
 const SignUp = ({ setToken }) => {
