@@ -35,7 +35,14 @@ const TextAlign = styled.div`
 text-align: left;
 `;
 
-
+const ErrorText = styled.div`
+font-size: 20px;
+text-align: center;
+color: ${({ theme }) => theme.red};
+@media (max-width: 450px) {
+  font-size: 14px;
+}
+`;
 
 async function loginUser(credentials) {
   return fetch('http://localhost:8080/user/signin', {
