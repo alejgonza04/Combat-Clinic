@@ -83,14 +83,39 @@ cursor: pointer;
 `;
 
 
-const Dashboard = () => {
+const Dashboard = ({ email }) => {
+  const [sessionData, setSessionData] = useState([]);
+  useEffect(() => {
+    if (email) {
+      const fetchSessionData = async () => {
+        try {
+          const response = await fetch(`http://localhost:8080/sessions?email=${email}`, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error('Error fetching session data');
+          }
+
+          const data = await response.json();
+          setSessionData(data);
+        } catch (error) {
+          console.error('Error fetching session data:', error);
+        }
+      };
+
+      fetchSessionData();
+    }
+  }, [email]);
   return (
     <Container>
       <Wrapper>
 
-      <Cards></Cards>
+      <Cards email={email} />
 
-      <Card></Card>
+      <Card email={email} sessions={sessionData} />
 
 
       
