@@ -46,20 +46,35 @@ async function registerUser(credentials) {
 }
 
 
+
+
 const SignUp = ({ setToken }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     if (e) {
       e.preventDefault();
     }
-    const credentials = { name, email, password };
-    const response = await registerUser(credentials);
-    const token = response.token;
-    localStorage.setItem('token', token);
-    setToken(token);
+
+    try {
+      const credentials = { name, email, password };      
+      const response = await registerUser(credentials);
+      
+      if (!response.token){
+        throw new Error(response.message || 'Sign Up Failed');
+      }
+      const token = response.token;
+      const userEmail = response.result.email; // Extract the user's email from the response
+      localStorage.setItem('token', token);
+      localStorage.setItem('email', userEmail); // Store the user's email in local storage
+      setToken(token);
+      console.log(userEmail);
+      } catch (error) {
+        setError(error.message);
+      }
   }
 
   return <Container>
@@ -92,6 +107,7 @@ const SignUp = ({ setToken }) => {
         <Button text="Sign Up" onClick={(e) => handleSubmit(e)}
         />
       </div>
+      {error && <ErrorText>{error}</ErrorText>}
     </Container>
 
 }
@@ -101,4 +117,3 @@ SignUp.propTypes = {
 }
 
 export default SignUp
-
