@@ -4,7 +4,7 @@ import auth from '../middleware/auth.js';
 
 const router = express.Router();
 
-router.get('/', getSessions);
-router.post('/', addSession);
+router.get('/', auth, getSessions);
+router.post('/', auth, addSession);
 
 export default router;
