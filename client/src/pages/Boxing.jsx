@@ -119,6 +119,11 @@ const Boxing = () => {
             <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/vlLmPtwSQlM"); setIsVidClicked(true); }}>3. Hook</TechLink>
             <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/eBxn21FtqPg"); setIsVidClicked(true); }}>4. Upper Cut</TechLink>
             <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/hNclexRmDsY"); setIsVidClicked(true); }}>5. Pivot</TechLink>
+            <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/XIja1S9SXI4"); setIsVidClicked(true); }}>6. Rolling Punches</TechLink>
+            <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/omXOTpDn7qY"); setIsVidClicked(true); }}>7. Footwork Exercises</TechLink>
+            <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/05XgLoAKaVI"); setIsVidClicked(true); }}>8. Effective Combo Drils</TechLink>
+            <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/mdVZBV_NrtY"); setIsVidClicked(true); }}>9. Counter Punching</TechLink>
+            <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/xPnZ6q5WC9U"); setIsVidClicked(true); }}>10. Punching Ranges</TechLink>
             <TechLink onClick={handleButtonClick}> ← </TechLink>
               </>
             )}
