@@ -119,6 +119,7 @@ padding: 10px;
 
 const Sessions = () => {
     const { sessions } = useSession();
+    const [sessionData, setSessionData] = useState([]);
     
     const getImage = (sessionType) => {
       switch(sessionType) {
@@ -166,7 +167,7 @@ const Sessions = () => {
 
                 <CardWrapper>
                   <Text>Date: </Text>
-                  <Text3>{session.date.toLocaleDateString()}</Text3>
+                  <Text3>{new Date(session.date).toLocaleDateString()}</Text3>
                 </CardWrapper>
                 </CardWrapper3>
 
