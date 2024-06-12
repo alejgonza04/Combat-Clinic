@@ -18,9 +18,7 @@ import myImage from "./utils/images/photo.JPG";
 import Sessions from './pages/Sessions.jsx';
 import Progress from './pages/Progress.jsx';
 import Welcome from './pages/Welcome.jsx';
-import axios from 'axios';
-
-axios.defaults.baseURL = 'http://localhost:8080';
+import { SessionProvider, useSession } from './components/SessionContext';
 
 const Container = styled.div`
 width: 100%;
@@ -68,27 +66,63 @@ background-position: center;
 z-index: -1;
 `;
 
-
 const App = () => {
-  const [token, setToken] = useState(localStorage.getItem('token') || null);
-  const [isWelcomePageOpen, setIsWelcomePageOpen] = useState(true);
-  const [email, setEmail] = useState(''); // State variable to store user's email
-  const [isLoginOpen, setIsLoginOpen] = useState(!token);
+ // Initialize token from localStorage
+ const { setToken, setEmail } = useSession();
+  const [localToken, setLocalToken] = useState(localStorage.getItem('token'));
+  const [isWelcomePageOpen, setIsWelcomePageOpen] = useState(localStorage.getItem('isWelcomePageOpen') !== 'false');
 
-    const handleSetToken = (userToken) => {
-      localStorage.setItem('token', userToken);
-      setToken(userToken);
+  useEffect(() => {
+    setToken(localToken);
+    setEmail(localStorage.getItem('email'));
+  }, [localToken]);
+
+  const handleSetToken = (userToken) => {
+    localStorage.setItem('token', userToken);
+    setLocalToken(userToken);
+    setToken(userToken); 
+
+    const fetchUserEmail = async (userToken) => {
+      try {
+        const response = await fetch('http://localhost:8080/user/email', {
+          headers: {
+            Authorization: `Bearer ${userToken}`
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error('Error fetching user email');
+        }
+
+        const data = await response.json();
+        const userEmail = data.email;
+        localStorage.setItem('email', userEmail);
+        setEmail(userEmail); // Update email in context
+      } catch (error) {
+        console.error('Error fetching user email:', error);
+      }
     };
-  
-    const handleLogout = () => {
-      localStorage.removeItem('token');
-      setToken(null);
-    };
+
+    fetchUserEmail(userToken);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('email');
+    setLocalToken(null);
+    setToken(null); 
+    setEmail(null); 
+  };
+
+  const handleCloseWelcomePage = () => {
+    localStorage.setItem('isWelcomePageOpen', 'false');
+    setIsWelcomePageOpen(false);
+  };
 
   return (
   <ThemeProvider theme={lightTheme}>
   <BrowserRouter>
-    {token ? (
+    {localToken ? (
       <Image>
       <BackgroundCard>
       <Navbar handleLogout={handleLogout}/>
@@ -110,8 +144,8 @@ const App = () => {
 
   ) : (
     <Container>
-      {isWelcomePageOpen ? (
-        <Welcome setIsWelcomePageOpen={setIsWelcomePageOpen}/>
+      {!localToken && isWelcomePageOpen ? (
+        <Welcome  setIsWelcomePageOpen={setIsWelcomePageOpen} handleCloseWelcomePage={handleCloseWelcomePage} />
       ) : (
         <Authentication  setToken={handleSetToken} />
       )}
@@ -123,6 +157,4 @@ const App = () => {
 }
 
 export default App
-
-
 
