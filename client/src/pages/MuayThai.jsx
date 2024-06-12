@@ -123,6 +123,9 @@ const MuayThai = () => {
             <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/fdsiCeQjHUo"); setIsVidClicked(true);}}>5. Elbow</TechLink>
             <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/XavDyo61cBo"); setIsVidClicked(true);}}>6. Clinch</TechLink>
             <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/Ty5eavmzG0U"); setIsVidClicked(true);}}>7. Sweep</TechLink>
+            <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/qdSQSA0-0R4"); setIsVidClicked(true);}}>8. Counters</TechLink>
+            <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/UqBvFAukcAQ"); setIsVidClicked(true);}}>9. Head Movement Drills</TechLink>
+            <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/Gvb_w6xd3Yg"); setIsVidClicked(true);}}>10. Live Sparring Drills</TechLink>
             <TechLink onClick={handleButtonClick}> ← </TechLink>
             </>
           )}
@@ -143,3 +146,4 @@ const MuayThai = () => {
 }
 
 export default MuayThai
+
