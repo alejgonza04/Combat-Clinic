@@ -22,7 +22,6 @@ width: 100%;
 
 const Wrapper = styled.div`
 width: 100%;
-max-width: 1500px;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -31,7 +30,6 @@ flex-direction: column;
 
 const CardWrapper = styled.div`
 width: 100%;
-max-width: 1500px;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -180,6 +178,7 @@ const Text = styled.div`
 font-weight: 500;
 color: white;
 font-size: 40px;
+text-align: center;
 @media (max-width: 830px) {
   font-size: 16px;
 }
@@ -189,6 +188,7 @@ const Text2 = styled.div`
 font-weight: 800;
 color: ${({ theme }) => theme.red};
 font-size: 60px;
+text-align: center;
 @media (max-width: 830px) {
   font-size: 40px;
 }
@@ -198,10 +198,12 @@ const Text3 = styled.div`
 font-weight: 500;
 color: white;
 padding: 35px;
+text-align: center;
 font-size: 25px;
 @media (max-width: 768px) {
-  font-size: 20px;
+  font-size: 19px;
   padding: 30px;
+  text-align: center;
 }
 `;
 
@@ -351,7 +353,7 @@ const Welcome = ({ setIsWelcomePageOpen }) => { //pass in setIsLoginRequested to
                     <FeaturesIcon src={progress2}/>
                     <FeaturesCardText>Progress Tracking</FeaturesCardText>
                     <FeaturesCardText2>Access real-time graph analytics on training hours 
-                      and chart data on martial arts training distribution. 
+                      and your martial arts training distribution. 
                     </FeaturesCardText2>
                 </FeaturesCard>
                 
