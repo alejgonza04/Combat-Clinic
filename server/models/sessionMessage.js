@@ -6,6 +6,7 @@ const postSchema = mongoose.Schema({
     sparringTime: String,
     techniques: String,
     date: String,
+    userEmail: String
 })
 
 var sessionMessage = mongoose.model('sessionMessage', postSchema);
