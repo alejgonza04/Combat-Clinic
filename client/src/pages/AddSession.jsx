@@ -406,7 +406,7 @@ const AddSession = () => {
                 <CardContainer2>
                 <Text>
                     Sparring Time
-                    <TextBox2 
+                    <TextBox
                     type="text"
                     value={timeTextBoxValue}
                     onChange = {handleTimeChange}
