@@ -32,9 +32,9 @@ gap: 22px;
 
 const Card = styled.div`
 display: flex;
-height: 350px;
+height: 100%;
 width: 900px;
-padding: 24px;
+padding: 35px;
 border: 1px solid ${({ theme }) => theme.black + 20};
 border-radius: 20px;
 background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.80));
@@ -43,17 +43,15 @@ display: flex;
 flex-direction: column;
 @media (max-width: 768px) {
   padding: 16px;
-  border-radius: 10px;
-  height: 250px;
+  height: 100%;
   width: 650px;
   border-radius: 20px;
 }
 @media (max-width: 450px) {
   padding: 16px;
-  border-radius: 10px;
   width: 320px;
   border-radius: 20px;
-  height: 160px;
+  height: 100%;
 }
 `;
 
@@ -68,6 +66,21 @@ const Text = styled.div`
   justify-content: center;
   @media (max-width: 450px) {
     gap: 20px;
+  }
+`;
+
+const Title = styled.div`
+  font-weight: 800;
+  color: ${({ theme }) => theme.white};
+  font-size: 50px;
+  padding: 5px;
+  gap: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 450px) {
+    gap: 20px;
+    font-size: 30px;
   }
 `;
 
@@ -118,6 +131,7 @@ const Techniques = () => {
     <Container>
       <Wrapper>
         <Card>
+        <Title>Technique Videos</Title>
         <Text>
           <Navlink to='/techniques/bjj' isHovered={isHovered}>BJJ</Navlink>
           <Navlink to='/techniques/muaythai' isHovered={isHovered1}>Muay Thai</Navlink>
