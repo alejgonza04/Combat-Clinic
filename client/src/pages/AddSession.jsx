@@ -9,6 +9,7 @@ import DatePicker from "react-datepicker";
 import useClickedItem from "../components/useClickedItem.jsx";
 import "react-datepicker/dist/react-datepicker.css";
 import { useSession } from '../components/SessionContext.jsx';
+import { Token } from "@mui/icons-material";
 
 const Container = styled.div`
 height: 100%;
@@ -18,6 +19,19 @@ justify-content: center;
 padding: 22px 0px;
 align-items: flex-start;
 overflow-y: scroll;
+`;
+
+const Wrapper = styled.div`
+flex: 1;
+max-width: 1400px;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 22px;
+@media (max-width: 768px){
+    flex-direction: column;
+    padding: 0px 0px 150px 0px;
+}
 `;
 
 const Card = styled.div`
@@ -250,6 +264,7 @@ position: relative;
 const TextBox2 = styled.input`
 width: 50%;
 height: 50%; 
+box-sizing: border-box;
 padding: 10px;
 font-size: 18px;
 border: 1px solid #ccc;
@@ -281,7 +296,6 @@ margin-top: 10px;
 const StyledLink = styled(Link)`
   text-decoration: none; /* Remove underline */
 `;
-
 
 async function createSession(sessionData, token, userEmail) {
   try {
@@ -443,7 +457,6 @@ const AddSession = () => {
 }
 
 export default AddSession
-
 
 
 
