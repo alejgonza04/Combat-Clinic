@@ -282,15 +282,16 @@ const StyledLink = styled(Link)`
   text-decoration: none; /* Remove underline */
 `;
 
+
 async function createSession(sessionData, token) {
   try {
-    const response = await fetch('https://combat-clinic.onrender.com/addsession', {
+    const response = await fetch('http://localhost:8080/addsession', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
+        'Authorization': `Bearer ${token}`
       },
-      body: JSON.stringify(sessionData),
+      body: JSON.stringify({ ...sessionData }), // Include the user's email in the request body
     });
 
     if (!response.ok) {
@@ -304,6 +305,7 @@ async function createSession(sessionData, token) {
     throw error;
   }
 }
+
 
 const AddSession = () => {
     const [clickedLink, setClickedLink] = useState(null);
@@ -327,24 +329,18 @@ const AddSession = () => {
           sessionLength: clickedLink,
           sparringTime: timeTextBoxValue + " min",
           techniques: techTextBoxValue,
-          date: selectedDate
+          date: selectedDate.toISOString()
         };
-
-        try {
-          const response = await createSession(sessionData);
-
-          addSession(response);
-          navigate('/sessions');
-
-          // Update the item Map with the new item
-          setItem(prevItem => {
-            const updatedItem = new Map([...prevItem, [prevItem.size, sessionData]]);
-            console.log("Updated item:", updatedItem);
-            return updatedItem;
-          });
-        } catch (error) {
-          console.error('Error creating session:', error);
-        }
+          
+          const token = localStorage.getItem('token');
+          try {
+            await createSession(sessionData, token); // Pass the token when creating a session
+            addSession(sessionData);
+            navigate("/sessions"); // Navigate to the sessions page
+            console.log(token);
+          } catch (error) {
+            console.error("Error creating session:", error);
+          }
        
       } else {
         console.log("Please fill in all fields before adding the session.");
@@ -443,4 +439,6 @@ const AddSession = () => {
 }
 
 export default AddSession
+
+
 
