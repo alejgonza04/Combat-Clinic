@@ -105,8 +105,36 @@ gap: 6px;
 background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.80));
 `;
 
-const Authentication = ({ setToken, setIsLoginOpen }) => {
+
+const Authentication = ({ setToken }) => {
   const [noLogin, setNoLogin] = useState(false);
+
+  const fetchUserEmail = async (userToken) => {
+    try {
+      const response = await fetch('http://localhost:8080/user/email', {
+        headers: {
+          Authorization: `Bearer ${userToken}`
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error('Error fetching user email');
+      }
+
+      const data = await response.json();
+      const userEmail = data.email;
+      localStorage.setItem('email', userEmail); // Save email to local storage
+    } catch (error) {
+      console.error('Error fetching user email:', error);
+    }
+  };
+
+  const handleSetToken = (userToken) => {
+    localStorage.setItem('token', userToken);
+    setToken(userToken);
+    fetchUserEmail(userToken); // Fetch email immediately after setting token
+  };
+
   return (
     <Container>
       <Image src={AuthImage}/>
@@ -116,14 +144,14 @@ const Authentication = ({ setToken, setIsLoginOpen }) => {
       <AuthenticationCard>
        {!noLogin ? (
         <> 
-        <SignIn setToken={setToken}/>
+        <SignIn setToken={handleSetToken}/>
           <Text>Don't have an account?{" "}
           <TextButton onClick={() => setNoLogin(true)}>Sign Up</TextButton>
           </Text>
       </>
       ) : (
         <>
-        <SignUp setToken={setToken}/>
+        <SignUp setToken={handleSetToken}/>
           <Text>Already have an account?<TextButton onClick={() => setNoLogin(false)}>Sign In</TextButton>
 
           </Text>
@@ -136,3 +164,4 @@ const Authentication = ({ setToken, setIsLoginOpen }) => {
 }
 
 export default Authentication;
+
