@@ -283,15 +283,15 @@ const StyledLink = styled(Link)`
 `;
 
 
-async function createSession(sessionData, token) {
+async function createSession(sessionData, token, userEmail) {
   try {
-    const response = await fetch('http://localhost:8080/addsession', {
+    const response = await fetch(`http://localhost:8080/addsession/${userEmail}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       },
-      body: JSON.stringify({ ...sessionData }), // Include the user's email in the request body
+      body: JSON.stringify({ ...sessionData, userEmail }), // Include the user's email in the request body
     });
 
     if (!response.ok) {
@@ -329,12 +329,14 @@ const AddSession = () => {
           sessionLength: clickedLink,
           sparringTime: timeTextBoxValue + " min",
           techniques: techTextBoxValue,
-          date: selectedDate.toISOString()
+          date: selectedDate.toISOString(),
+          userEmail: localStorage.getItem('email')
         };
           
           const token = localStorage.getItem('token');
+          const userEmail = localStorage.getItem('email');
           try {
-            await createSession(sessionData, token); // Pass the token when creating a session
+            await createSession(sessionData, token, userEmail); // Pass the token when creating a session
             addSession(sessionData);
             navigate("/sessions"); // Navigate to the sessions page
             console.log(token);
@@ -361,6 +363,7 @@ const AddSession = () => {
     
   return (
     <Container>
+      <Wrapper>
         <Card>
             <CardContainer>
             
@@ -434,11 +437,13 @@ const AddSession = () => {
             </StyledLink>
             </ButtonContainer>
         </Card>
+        </Wrapper>
     </Container>
   )
 }
 
 export default AddSession
+
 
 
 
