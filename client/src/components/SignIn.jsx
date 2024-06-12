@@ -45,7 +45,7 @@ color: ${({ theme }) => theme.red};
 `;
 
 async function loginUser(credentials) {
-  return fetch('http://localhost:8080/user/signin', {
+  return fetch('https://combat-clinic.onrender.com/user/signin', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -83,6 +83,12 @@ const SignIn = ({ setToken }) => {
         setError(error.message);
       }
     }
+
+    const handleKeyPress = (e) => {
+      if (e.key === 'Enter'){
+        handleSubmit();
+      }
+    }
   
   return <Container>
       <div>
@@ -103,6 +109,7 @@ const SignIn = ({ setToken }) => {
         <TextAlign>
         <TextInput label="Password" placeholder="Enter your password"
         handleChange={(e) => setPassword(e.target.value)}
+        onKeyDown={handleKeyPress}
         />
         </TextAlign>
         <Button text="Sign In" onClick={(e) => handleSubmit(e)}
