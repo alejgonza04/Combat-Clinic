@@ -119,6 +119,11 @@ const Wrestling = () => {
             <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/YuP1wbBQdlY"); setIsVidClicked(true); }}>3. Outside Foot Sweep</TechLink>
             <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/70ZXpa-nky4"); setIsVidClicked(true); }}>4. Sprawl</TechLink>
             <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/x4fYB5okQDI"); setIsVidClicked(true); }}>5. Whizzer</TechLink>
+            <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/Y4o6lIR7ggc"); setIsVidClicked(true); }}>6. Chain Wresling</TechLink>
+            <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/3VNFmZL-DjE"); setIsVidClicked(true); }}>7. Cage Takedown Sequences</TechLink>
+            <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/DE0Bc-S8ahQ"); setIsVidClicked(true); }}>8. Increase Takedown Success</TechLink>
+            <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/9-ZV7TsX0gI"); setIsVidClicked(true); }}>9. Takedown Reversals</TechLink>
+            <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/C-HIpOy_kwI"); setIsVidClicked(true); }}>10. Striking Into Takedowns</TechLink>
             <TechLink onClick={handleButtonClick}> ← </TechLink>  
               </>
             )}
@@ -139,3 +144,4 @@ const Wrestling = () => {
 }
 
 export default Wrestling
+
