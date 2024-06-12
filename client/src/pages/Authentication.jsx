@@ -105,7 +105,7 @@ gap: 6px;
 background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.80));
 `;
 
-const Authentication = ({setToken}) => {
+const Authentication = ({ setToken, setIsLoginOpen }) => {
   const [noLogin, setNoLogin] = useState(false);
   return (
     <Container>
