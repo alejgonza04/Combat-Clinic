@@ -75,21 +75,6 @@ const App = () => {
   const [email, setEmail] = useState(''); // State variable to store user's email
   const [isLoginOpen, setIsLoginOpen] = useState(!token);
 
-  /*useEffect(() => {
-    const fetchUserEmail = async () => {
-      try {
-        const response = await axios.get('/user/email', {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
-        setEmail(response.data.email);
-      } catch (error) {
-        console.error('Error fetching user email:', error);
-      }
-    }
-    });*/
-
     const handleSetToken = (userToken) => {
       localStorage.setItem('token', userToken);
       setToken(userToken);
@@ -106,7 +91,6 @@ const App = () => {
     {token ? (
       <Image>
       <BackgroundCard>
-      {/*<Navbar setToken={setToken}/>*/}
       <Navbar handleLogout={handleLogout}/>
       <Routes>
         <Route path="/" element={<Dashboard />}/>
@@ -129,7 +113,6 @@ const App = () => {
       {isWelcomePageOpen ? (
         <Welcome setIsWelcomePageOpen={setIsWelcomePageOpen}/>
       ) : (
-        //<Authentication {/*setToken={setToken} setEmail={setEmail}*/} />
         <Authentication  setToken={handleSetToken} />
       )}
     </Container>
@@ -139,27 +122,7 @@ const App = () => {
   );
 }
 
-/*const App = () => {
-  //const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [token, setToken] = useState();
-  if (!token) {
-    return <Authentication setToken={setToken} />
-  }
-  return (
-  <ThemeProvider theme={lightTheme}>
-  <BrowserRouter>
-      <Container>
-      <Navbar>
-      <Routes>
-        <Route path="/" exact element={<Dashboard />}/>
-      </Routes>
-      </Navbar>
-  </Container>
-  </BrowserRouter>
-  </ThemeProvider>
-  );
-}*/
-
 export default App
+
 
 
