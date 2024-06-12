@@ -68,23 +68,35 @@ z-index: -1;
 
 const App = () => {
  // Initialize token from localStorage
- const { setToken, setEmail } = useSession();
-  const [localToken, setLocalToken] = useState(localStorage.getItem('token'));
-  const [isWelcomePageOpen, setIsWelcomePageOpen] = useState(localStorage.getItem('isWelcomePageOpen') !== 'false');
+const { setToken, setEmail } = useSession();
+const [localToken, setLocalToken] = useState(localStorage.getItem('token') || null);
+const [isWelcomePageOpen, setIsWelcomePageOpen] = useState(localStorage.getItem('isWelcomePageOpen') !== 'false');
+const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     setToken(localToken);
     setEmail(localStorage.getItem('email'));
   }, [localToken]);
 
+  useEffect(() => {
+    // Check if 'isWelcomePageOpen' is null (first-time user)
+    if (localStorage.getItem('isWelcomePageOpen') === null) {
+      setIsWelcomePageOpen(true);  
+    }
+  }, []);
+
+  useEffect(() => {
+    setIsAuthenticated(localToken !== null);
+  }, [localToken]);
+
   const handleSetToken = (userToken) => {
     localStorage.setItem('token', userToken);
     setLocalToken(userToken);
-    setToken(userToken); 
+    setToken(userToken);
 
     const fetchUserEmail = async (userToken) => {
       try {
-        const response = await fetch('http://localhost:8080/user/email', {
+        const response = await fetch('https://combat-clinic.onrender.com/user/email', {
           headers: {
             Authorization: `Bearer ${userToken}`
           }
@@ -98,6 +110,7 @@ const App = () => {
         const userEmail = data.email;
         localStorage.setItem('email', userEmail);
         setEmail(userEmail); // Update email in context
+        setIsAuthenticated(true);
       } catch (error) {
         console.error('Error fetching user email:', error);
       }
@@ -109,9 +122,12 @@ const App = () => {
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('email');
+    localStorage.removeItem('isWelcomePageOpen');
     setLocalToken(null);
-    setToken(null); 
+    setToken(null);
     setEmail(null); 
+    setIsWelcomePageOpen(true);
+    setIsAuthenticated(false); 
   };
 
   const handleCloseWelcomePage = () => {
@@ -122,7 +138,7 @@ const App = () => {
   return (
   <ThemeProvider theme={lightTheme}>
   <BrowserRouter>
-    {localToken ? (
+    { isAuthenticated ? (
       <Image>
       <BackgroundCard>
       <Navbar handleLogout={handleLogout}/>
@@ -144,7 +160,7 @@ const App = () => {
 
   ) : (
     <Container>
-      {!localToken && isWelcomePageOpen ? (
+      { isWelcomePageOpen ? (
         <Welcome  setIsWelcomePageOpen={setIsWelcomePageOpen} handleCloseWelcomePage={handleCloseWelcomePage} />
       ) : (
         <Authentication  setToken={handleSetToken} />
