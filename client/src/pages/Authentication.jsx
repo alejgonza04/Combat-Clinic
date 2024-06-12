@@ -111,7 +111,7 @@ const Authentication = ({ setToken }) => {
 
   const fetchUserEmail = async (userToken) => {
     try {
-      const response = await fetch('http://localhost:8080/user/email', {
+      const response = await fetch('https://combat-clinic.onrender.com/user/email', {
         headers: {
           Authorization: `Bearer ${userToken}`
         }
