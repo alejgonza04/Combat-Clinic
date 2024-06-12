@@ -58,6 +58,9 @@ background-image: url(${AuthImage});
 background-size: cover;
 background-position: center;
 z-index: -1;
+@media (max-width: 450px) {
+    position: absolute; /* Change to absolute for smaller screens to avoid fixed position issues */
+  }
 `;
 
 const AuthenticationCard = styled.div`
