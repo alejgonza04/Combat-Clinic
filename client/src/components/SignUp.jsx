@@ -44,7 +44,7 @@ color: ${({ theme }) => theme.red};
 `;
 
 async function registerUser(credentials) {
-  return fetch('http://localhost:8080/user/signup', {
+  return fetch('https://combat-clinic.onrender.com/user/signup', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -53,7 +53,6 @@ async function registerUser(credentials) {
   })
     .then((data) => data.json());
 }
-
 
 const SignUp = ({ setToken }) => {
   const [name, setName] = useState('');
@@ -84,6 +83,12 @@ const SignUp = ({ setToken }) => {
       }
   }
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter'){
+      handleSubmit();
+    }
+  }
+
   return <Container>
       <div>
         <Title>Welcome to Combat Clinic</Title>
@@ -109,6 +114,7 @@ const SignUp = ({ setToken }) => {
         <TextAlign>
         <TextInput label="Password" placeholder="Enter your password"
         handleChange={(e) => setPassword(e.target.value)}
+        onKeyDown={handleKeyPress}
         />
         </TextAlign>
         <Button text="Sign Up" onClick={(e) => handleSubmit(e)}
@@ -124,3 +130,4 @@ SignUp.propTypes = {
 }
 
 export default SignUp
+
