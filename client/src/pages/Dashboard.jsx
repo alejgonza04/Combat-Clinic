@@ -89,7 +89,7 @@ const Dashboard = ({ email }) => {
     if (email) {
       const fetchSessionData = async () => {
         try {
-          const response = await fetch(`http://localhost:8080/sessions?email=${email}`, {
+          const response = await fetch(`https://combat-clinic.onrender.com/sessions?email=${email}`, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem('token')}`
             }
