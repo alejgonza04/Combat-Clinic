@@ -35,6 +35,7 @@ const TextAlign = styled.div`
 text-align: left;
 `;
 
+
 async function loginUser(credentials) {
   return fetch('http://localhost:8080/user/signin', {
     method: 'POST',
@@ -50,17 +51,35 @@ const SignIn = ({ setToken }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [userEmail, setUserEmail] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
       if (e) {
         e.preventDefault();
       }
-      const credentials = { email, password };  // Combine email and password
+      /*const credentials = { email, password };  // Combine email and password
       const response = await loginUser(credentials);  // Call loginUser with credentials
       const token = response.token;
       localStorage.setItem('token', token);
       console.log('Token:', token);
+      setToken(token);*/
+
+      try {
+      const credentials = { email, password };      
+      const response = await loginUser(credentials);
+      
+      if (!response.token){
+        throw new Error(response.message || 'Login Failed');
+      }
+      const token = response.token;
+      const userEmail = response.result.email; // Extract the user's email from the response
+      localStorage.setItem('token', token);
+      localStorage.setItem('email', userEmail); // Store the user's email in local storage
       setToken(token);
+      console.log(userEmail);
+      } catch (error) {
+        setError(error.message);
+      }
     }
   
   return <Container>
@@ -86,7 +105,8 @@ const SignIn = ({ setToken }) => {
         </TextAlign>
         <Button text="Sign In" onClick={(e) => handleSubmit(e)}
         />
-      </div>
+         </div>
+         {error && <ErrorText>{error}</ErrorText>}
     </Container>
 
 }
