@@ -19,8 +19,8 @@ app.get('/', (req, res) => {
     res.send('Hello, World!');
 });
 
-app.use('/addsession', sessionRoutes); // Route for adding sessions
-app.use('/sessions', sessionRoutes); // Route for retrieving sessions
+app.use('/addsession', sessionRoutes); 
+app.use('/sessions', sessionRoutes); 
 app.use('/user', userRoutes);
 
 const startServer = async () => {
@@ -38,7 +38,5 @@ const startServer = async () => {
         }
     }
 }
-
-//app.listen(8080, () => console.log('Server started on port http://localhost:8080'));
 
 startServer();
