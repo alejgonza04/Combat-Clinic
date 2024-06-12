@@ -36,6 +36,7 @@ text-align: left;
 `;
 
 
+
 async function loginUser(credentials) {
   return fetch('http://localhost:8080/user/signin', {
     method: 'POST',
@@ -57,19 +58,13 @@ const SignIn = ({ setToken }) => {
       if (e) {
         e.preventDefault();
       }
-      /*const credentials = { email, password };  // Combine email and password
-      const response = await loginUser(credentials);  // Call loginUser with credentials
-      const token = response.token;
-      localStorage.setItem('token', token);
-      console.log('Token:', token);
-      setToken(token);*/
 
       try {
       const credentials = { email, password };      
       const response = await loginUser(credentials);
       
       if (!response.token){
-        throw new Error(response.message || 'Login Failed');
+        throw new Error(response.message || 'Sign Failed');
       }
       const token = response.token;
       const userEmail = response.result.email; // Extract the user's email from the response
