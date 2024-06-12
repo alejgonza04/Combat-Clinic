@@ -119,6 +119,10 @@ const Bjj = () => {
             <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/9pjdpFCr4UI"); setIsVidClicked(true);}}>4. Triangle Choke</TechLink>
             <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/mVkKOPNGvjA"); setIsVidClicked(true);}}>5. Kimura</TechLink>
             <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/MWMNq8DGHyo"); setIsVidClicked(true);}}>6. Darce Choke</TechLink>
+            <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/0_3YYrWEGoU"); setIsVidClicked(true);}}>7. Buggy Choke</TechLink>
+            <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/PEhfJnm-gd4"); setIsVidClicked(true);}}>8. Shoulder Crunch</TechLink>
+            <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/gA3cF4U-0A4"); setIsVidClicked(true);}}>9. No Gi Sweeps</TechLink>
+            <TechLink onClick={() => {setIframeSrc("https://www.youtube.com/embed/dVbD9SpAjAw"); setIsVidClicked(true);}}>10. No Gi Throws</TechLink>
             <TechLink onClick={handleButtonClick}> ← </TechLink>
               </>
             )}
