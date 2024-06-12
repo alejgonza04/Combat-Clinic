@@ -140,32 +140,28 @@ font weight: 600;
 }
 `;
 
-
-const Navbar = ({setToken}) => {
-    const handleLogout = () => {
-        setToken(false);
-    }
-    return (
-    <Nav>
-    <NavContainer> 
-        <NavName to="/">
-            <Logo src={LogoImage}/>
-            Combat Clinic
-            <Logo src={LogoImage2}/>
-        </NavName>
-        <NavItems>
-            <Navlink to='/'>Dashboard</Navlink>
-            <Navlink to='/sessions'>Sessions</Navlink>
-            <Navlink to='/techniques'>Techniques</Navlink>
-            <Navlink to='/contact'>Contact</Navlink>
-        </NavItems>
-        <UserContainer>
-        <TextButton onClick={handleLogout}>Logout
-        </TextButton>
-        </UserContainer>
-    </NavContainer>
-    </Nav>
-  );
+const Navbar = ({ handleLogout }) => {
+  return (
+  <Nav>
+  <NavContainer> 
+      <NavName to="/">
+          <Logo src={LogoImage}/>
+          Combat Clinic
+          <Logo src={LogoImage2}/>
+      </NavName>
+      <NavItems>
+          <Navlink to='/'>Dashboard</Navlink>
+          <Navlink to='/sessions'>Sessions</Navlink>
+          <Navlink to='/techniques'>Techniques</Navlink>
+          <Navlink to='/contact'>Contact</Navlink>
+      </NavItems>
+      <UserContainer>
+      <TextButton onClick={handleLogout}>Logout
+      </TextButton>
+      </UserContainer>
+  </NavContainer>
+  </Nav>
+);
 };
 
 export default Navbar;
