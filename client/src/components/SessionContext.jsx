@@ -6,12 +6,15 @@ export const useSession = () => useContext(SessionContext);
 
 export const SessionProvider = ({ children }) => {
     const [sessions, setSessions] = useState([]);
+    const [token, setToken] = useState(localStorage.getItem('token'));
+    const [email, setEmail] = useState(localStorage.getItem('email'));
+
     useEffect(() => {
         const fetchSessions = async () => {
+            if (!token || !email) return; // Avoid fetching if token or email is not available
+
             try {
-                const token = localStorage.getItem('token');
-                const userEmail = localStorage.getItem('email'); // Retrieve the user's email from local storage
-                const response = await fetch(`http://localhost:8080/sessions/${userEmail}`, { // Pass the user's email in the URL
+                const response = await fetch(`http://localhost:8080/sessions/${email}`, {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
@@ -25,18 +28,18 @@ export const SessionProvider = ({ children }) => {
                 console.error('Fetch sessions error:', error.message);
             }
         };
-        
-    
+
         fetchSessions();
-    }, []);
+    }, [token, email]); // Re-fetch sessions when token or email changes
 
     const addSession = (session) => {
         setSessions((prevSessions) => [...prevSessions, session]);
-    }
+    };
 
     return (
-        <SessionContext.Provider value={{ sessions, addSession }}>
+        <SessionContext.Provider value={{ sessions, addSession, setToken, setEmail }}>
             {children}
         </SessionContext.Provider>
-    )
-}
+    );
+};
+
