@@ -89,6 +89,27 @@ const [isAuthenticated, setIsAuthenticated] = useState(false);
     setIsAuthenticated(localToken !== null);
   }, [localToken]);
 
+  useEffect(() => {
+    // Event listener to handle logout on beforeunload
+    const handleBeforeUnload = () => {
+      localStorage.removeItem('token');
+      localStorage.removeItem('email');
+      localStorage.removeItem('isWelcomePageOpen');
+      setLocalToken(null);
+      setToken(null); // Clear token in context
+      setEmail(null); // Clear email in context
+      setIsWelcomePageOpen(true);
+      setIsAuthenticated(false); 
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    // Clean up the event listener when component unmounts
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [setToken, setEmail]);
+
   const handleSetToken = (userToken) => {
     localStorage.setItem('token', userToken);
     setLocalToken(userToken);
