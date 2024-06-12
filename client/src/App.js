@@ -89,27 +89,6 @@ const [isAuthenticated, setIsAuthenticated] = useState(false);
     setIsAuthenticated(localToken !== null);
   }, [localToken]);
 
-  /*useEffect(() => {
-    // Event listener to handle logout on beforeunload
-    const handleBeforeUnload = () => {
-      localStorage.removeItem('token');
-      localStorage.removeItem('email');
-      localStorage.removeItem('isWelcomePageOpen');
-      setLocalToken(null);
-      setToken(null); // Clear token in context
-      setEmail(null); // Clear email in context
-      setIsWelcomePageOpen(true);
-      setIsAuthenticated(false); 
-    };
-
-    window.addEventListener('beforeunload', handleBeforeUnload);
-
-    // Clean up the event listener when component unmounts
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
-  }, [setToken, setEmail]);*/
-
   useEffect(() => {
     const handleBeforeUnload = (event) => {
       sessionStorage.setItem('isReloading', 'true');
@@ -141,9 +120,8 @@ const [isAuthenticated, setIsAuthenticated] = useState(false);
   const handleSetToken = (userToken) => {
     localStorage.setItem('token', userToken);
     setLocalToken(userToken);
-    setToken(userToken); // Update token in context
+    setToken(userToken); 
 
-    // Fetch user email and set it in local storage and state
     const fetchUserEmail = async (userToken) => {
       try {
         const response = await fetch('https://combat-clinic.onrender.com/user/email', {
@@ -174,8 +152,8 @@ const [isAuthenticated, setIsAuthenticated] = useState(false);
     localStorage.removeItem('email');
     localStorage.removeItem('isWelcomePageOpen');
     setLocalToken(null);
-    setToken(null); // Clear token in context
-    setEmail(null); // Clear email in context
+    setToken(null);
+    setEmail(null);
     setIsWelcomePageOpen(true);
     setIsAuthenticated(false); 
   };
@@ -191,7 +169,6 @@ const [isAuthenticated, setIsAuthenticated] = useState(false);
     { isAuthenticated ? (
       <Image>
       <BackgroundCard>
-      {/*<Navbar setToken={setToken}/>*/}
       <Navbar handleLogout={handleLogout}/>
       <Routes>
         <Route path="/" element={<Dashboard />}/>
@@ -214,7 +191,6 @@ const [isAuthenticated, setIsAuthenticated] = useState(false);
       { isWelcomePageOpen ? (
         <Welcome  setIsWelcomePageOpen={setIsWelcomePageOpen} handleCloseWelcomePage={handleCloseWelcomePage} />
       ) : (
-        //<Authentication {/*setToken={setToken} setEmail={setEmail}*/} />
         <Authentication  setToken={handleSetToken} />
       )}
     </Container>
