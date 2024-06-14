@@ -326,6 +326,15 @@ const StyledLink = styled(Link)`
   text-decoration: none; /* Remove underline */
 `;
 
+const ErrorText = styled.div`
+font-size: 25px;
+text-align: center;
+color: ${({ theme }) => theme.red};
+@media (max-width: 450px) {
+  font-size: 14px;
+}
+`;
+
 async function createSession(sessionData, token, userEmail) {
   try {
     const response = await fetch(`https://combat-clinic.onrender.com/addsession/${userEmail}`, {
@@ -362,6 +371,7 @@ const AddSession = () => {
     console.log("Initial item:", item);
     const navigate = useNavigate();
     const { addSession } = useSession();
+    const [error, setError] = useState('');
 
 
     const handleAddItem = async () => {
@@ -388,8 +398,8 @@ const AddSession = () => {
           }
        
       } else {
-        console.log("Please fill in all fields before adding the session.");
-      }
+        setError('Please click and fill in all fields before adding the session.');
+    }
   
     };
     
@@ -477,6 +487,9 @@ const AddSession = () => {
               </ButtonText>
             </Button>
             </StyledLink>
+            {error && (
+                <ErrorText>{error}</ErrorText> 
+            )}
             </ButtonContainer>
         </Card>
         </Wrapper>
