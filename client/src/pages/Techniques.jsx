@@ -42,13 +42,13 @@ box-shadow: 1px 6px 20px 0px ${({ theme }) => theme.black + 15};
 display: flex;
 flex-direction: column;
 @media (max-width: 768px) {
-  padding: 16px;
+  padding: 35px;
   height: 100%;
   width: 650px;
   border-radius: 20px;
 }
 @media (max-width: 450px) {
-  padding: 16px;
+  padding: 20px;
   width: 320px;
   border-radius: 20px;
   height: 100%;
