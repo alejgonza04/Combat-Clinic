@@ -329,7 +329,7 @@ const StyledLink = styled(Link)`
 
 async function createSession(sessionData, token, userEmail) {
   try {
-    const response = await fetch(`http://localhost:8080/addsession/${userEmail}`, {
+    const response = await fetch(`https://combat-clinic.onrender.com/addsession/${userEmail}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
