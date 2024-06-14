@@ -28,7 +28,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 gap: 22px;
-@media (max-width: 768px){
+@media (max-width: 980px){
     flex-direction: column;
     padding: 0px 0px 150px 0px;
 }
@@ -42,7 +42,7 @@ border: 1px solid ${({ theme }) => theme.black + 20};
 border-radius: 20px;
 background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.80));
 box-shadow: 1px 6px 20px 0px ${({ theme }) => theme.black + 15};
-@media (max-width: 768px) {
+@media (max-width: 980px) {
   width: 670px;
   height: auto;
   border-radius: 20px;
@@ -70,7 +70,7 @@ cursor: pointer;
 background: ${({ isHovered, theme }) => (isHovered ? theme.red :  theme.black )};
 box-shadow: 1px 6px 20px 0px ${({ theme }) => theme.black + 15};
 transition: background 0.3s ease;
-@media (max-width: 768px) {
+@media (max-width: 980px) {
   border-radius: 10px;
   width: 580px;
   height: 10px;
@@ -105,7 +105,7 @@ justify-content: center;
 gap: 10px; 
 cursor: pointer;
 display: flex;
-@media (max-width: 768px) {
+@media (max-width: 980px) {
   font-size: 23px; 
   padding: 7px;
 }
@@ -143,8 +143,8 @@ flex-direction: column;
 align-items: center;
 gap: 10px; 
 display: flex;
-@media (max-width: 768px) {
-  font-size: 23px; 
+@media (max-width: 980px) {
+  font-size: 19px; 
 }
 @media (max-width: 450px) {
   font-size: 20px;
@@ -160,7 +160,7 @@ flex-direction: column;
 align-items: center;
 gap: 10px; 
 display: flex;
-@media (max-width: 768px) {
+@media (max-width: 980px) {
   font-size: 23px; 
 }
 @media (max-width: 450px) {
@@ -176,7 +176,7 @@ font-size: 20px;
 padding: 10px;
 gap: 20px; 
 display: flex;
-@media (max-width: 768px) {
+@media (max-width: 980px) {
   font-size: 20px; 
 }
 @media (max-width: 450px) {
@@ -189,17 +189,19 @@ const Text3 = styled.div`
 font-weight: 800;
 color: white;
 font-size: 35px;
-padding: 20px;
+padding: 22px;
 flex-direction: column;
 align-items: center;
-gap: 10px; 
+gap: 7px; 
 display: flex;
-@media (max-width: 768px) {
-  font-size: 23px; 
-  padding: 7px;
+@media (max-width: 980px) {
+  font-size: 19px; 
+  padding: 5px;
+  gap: 10px;
 }
 @media (max-width: 450px) {
   font-size: 20px;
+  gap: 10px;
 }
 `;
 
@@ -214,7 +216,7 @@ text-decoration: none;
 &:hover {
 color: ${({ theme }) => theme.red};
 }
-@media (max-width: 768px) {
+@media (max-width: 980px) {
   font-size: 20px; 
 }
 @media (max-width: 450px) {
@@ -231,7 +233,7 @@ opacity: ${({ isClicked }) => (isClicked ? 0.3 : 1)};
 &:hover {
   opacity: 0.3; // Set the desired opacity on hover
 }
-@media (max-width: 768px) {
+@media (max-width: 980px) {
   width: 60px;
 }
 @media (max-width: 450px) {
@@ -252,7 +254,7 @@ font-size: 13px;
 padding: 5px;
 justify-content: start;
 display: flex;
-@media (max-width: 768px) {
+@media (max-width: 980px) {
   font-size: 8px; 
   padding: 7px;
 }
@@ -310,11 +312,16 @@ const StyledDatePicker = styled(DatePicker)`
 width: 200px; /* Adjust the width as needed */
 height: 40px; /* Adjust the height as needed */
 margin-top: 10px;
-@media (max-width: 768px) {
-  width: 200px;
-  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+@media (max-width: 450px) {
+  width: 90%;
+  height: 50%; 
+  padding: 10px;
+  font-size: 13px;
 }
 `;
+
 
 const StyledLink = styled(Link)`
   text-decoration: none; /* Remove underline */
@@ -322,7 +329,7 @@ const StyledLink = styled(Link)`
 
 async function createSession(sessionData, token, userEmail) {
   try {
-    const response = await fetch(`https://combat-clinic.onrender.com/addsession/${userEmail}`, {
+    const response = await fetch(`http://localhost:8080/addsession/${userEmail}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -433,7 +440,7 @@ const AddSession = () => {
                     type="text"
                     value={timeTextBoxValue}
                     onChange = {handleTimeChange}
-                    placeholder="Min"
+                    placeholder="Minutes"
                     />
                 </Text>
             </CardContainer2>
@@ -446,7 +453,6 @@ const AddSession = () => {
                 onChange={(e) => techSetTextBoxValue(e.target.value)}
                 placeholder="Enter Techniques Here"
                 />
-
                 <CardContainer2>
                 <Text3> 
                     Date
@@ -480,6 +486,3 @@ const AddSession = () => {
 }
 
 export default AddSession
-
-
-
