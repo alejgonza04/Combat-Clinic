@@ -117,6 +117,14 @@ padding: 10px;
 }
 `;
 
+const ImageText = styled.div`
+font-weight: 800;
+color: white;
+font-size: 15px;
+justify-content: start;
+display: flex;
+`;
+
 const Sessions = () => {
     const { sessions } = useSession();
     
@@ -144,6 +152,7 @@ const Sessions = () => {
                 <CardWrapper2>
                 <CardWrapper>
                 <Text> Session Type: </Text>
+                  <ImageText>{session.sessionType}</ImageText>
                   <Image src={getImage(session.sessionType)}/>
                 </CardWrapper>
 
