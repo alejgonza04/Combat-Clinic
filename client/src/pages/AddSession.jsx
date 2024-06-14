@@ -239,6 +239,29 @@ opacity: ${({ isClicked }) => (isClicked ? 0.3 : 1)};
 }
 `;
 
+const ImageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+`;
+
+const ImageText = styled.div`
+font-weight: 800;
+color: white;
+font-size: 13px;
+padding: 5px;
+justify-content: start;
+display: flex;
+@media (max-width: 768px) {
+  font-size: 8px; 
+  padding: 7px;
+}
+@media (max-width: 450px) {
+  font-size: 7px;
+  padding: 7px;
+}
+`;
+
 const TextBox = styled.input`
 width: 100%;
 height: 100%; 
