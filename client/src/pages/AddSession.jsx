@@ -9,7 +9,6 @@ import DatePicker from "react-datepicker";
 import useClickedItem from "../components/useClickedItem.jsx";
 import "react-datepicker/dist/react-datepicker.css";
 import { useSession } from '../components/SessionContext.jsx';
-import { Token } from "@mui/icons-material";
 
 const Container = styled.div`
 height: 100%;
