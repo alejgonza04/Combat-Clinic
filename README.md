@@ -48,7 +48,8 @@ Combat Clinic aids practitioners in their venture by enabling them to track thei
 - An overview of all user session data is layed out and organized by date.
 
 # Technique Breakdown Videos
-![cc 8](https://github.com/alejgonza04/Combat-Clinic/assets/149022594/7b77e6c5-61ab-4076-baf8-43c4482dbccf)
+![Screenshot 2024-07-02 160050](https://github.com/alejgonza04/Combat-Clinic/assets/149022594/cfd8c71e-d85b-46b5-b834-0f5b1b1e7d62)
+![Screenshot 2024-07-02 160118](https://github.com/alejgonza04/Combat-Clinic/assets/149022594/4bd424ff-37a1-4cae-8e94-d3cbf8e4119b)
 ![Screenshot 2024-07-02 155955](https://github.com/alejgonza04/Combat-Clinic/assets/149022594/2c282aa7-29cc-438c-a34d-76a5016d21a2)
 
 - Users can select a discipline and watch in-depth technique breakdown videos explained by professional and experienced martial artists.
