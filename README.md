@@ -59,6 +59,13 @@ Combat Clinic aids practitioners in their venture by enabling them to track thei
 - Users can select a discipline pick from a plethora of in-depth technique breakdown videos explained by professional and experienced martial artists.
 - This gives the user an opportunity to train, practice, and learn outside of the gym, elevating their game for next time they come to training.
 
+# Project Use
+- This project is a non-profit free to use website meant to help the martial arts community. It was shared with practioners online and fellow training partners at my local gym.
+- With 50+ registered users, practitioners consistently praise the website for its usefulness in visualizing their progress and enhancing their learning experience.
+
+# Future Development
+- This is my first startup, and I am planning on updating the website based on user feedback as well as expanding it to other martial art disciplines.
+
 # Author
 - Alejandro Gonzalez - https://github.com/alejgonza04
 
