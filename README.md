@@ -1,8 +1,42 @@
-<br />
-<div align="center">
-  Combat Clinic
-    <img src="![mmaicon](https://github.com/alejgonza04/Combat-Clinic/assets/149022594/6c9f5616-5836-4efa-8971-f8a1e2ffd698)">
-  </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Combat Clinic</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+    .header {
+      background-color: rgba(0, 0, 0, 0.9);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .header img {
+      height: 40px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+    .header h1 {
+      display: inline-block;
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0;
+    }
+    .content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 
 ![cc1](https://github.com/alejgonza04/Combat-Clinic/assets/149022594/aa3ae4e4-fc42-4f90-8a8e-6876317b34d1)
 
