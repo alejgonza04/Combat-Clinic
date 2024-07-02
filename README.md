@@ -9,6 +9,10 @@ https://combatclinic.netlify.app/
 # Technologies Used
 JavaScript, MongoDB, ExpressJS, React, Node.js
 
+# Hosting Websites Used
+Front-End: https://www.netlify.com/
+Back-End: https://render.com/
+
 # About
 This project was created out of my love for martial arts and programming. After me and my training partners realized there was no efficient way to track our progress and training sessions over time, I decided to create a solution. I set out to create a web application that could:
 - Allow us to track our progress and sessions
@@ -54,5 +58,8 @@ Combat Clinic aids practitioners in their venture by enabling them to track thei
 
 - Users can select a discipline pick from a plethora of in-depth technique breakdown videos explained by professional and experienced martial artists.
 - This gives the user an opportunity to train, practice, and learn outside of the gym, elevating their game for next time they come to training.
+
+# Author
+- Alejandro Gonzalez
 
 
