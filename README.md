@@ -14,14 +14,14 @@ Front-End: https://www.netlify.com/
 Back-End: https://render.com/
 
 # About
-This project was created out of my love for martial arts and programming. After me and my training partners realized there was no efficient way to track our progress and training sessions over time, I decided to create a solution. I set out to create a web application that could:
+This project was created out of my love for martial arts and programming. After my training partners and I realized there was no efficient way to track our progress and training sessions over time, I decided to create a solution. I set out to create a web application that could:
 - Allow us to track our progress and sessions
-- Give us analytics of our training data
+- Provide analytics of our training data
 - Teach us new techniques through videos
 
 # Features
 ### Overview
-Combat Clinic aids practitioners in their venture by enabling them to track their progress along the way. By adding their training sessions, they get access to real-time graph analytics of their training hours and martial arts distribution. Additionally, practitioners will have access to a diverse library of technique breakdown videos across various disciplines such as BJJ, Muay Thai, Boxing, and Wrestling. This intuitive approach allows them to visualize their progress, serving as motivation, accountability, and guidance. 
+Combat Clinic aids practitioners in their journey by enabling them to track their progress. By adding their training sessions, they get access to real-time graph analytics of their training hours and martial arts distribution. Additionally, practitioners have access to a diverse library of technique breakdown videos across various disciplines such as BJJ, Muay Thai, Boxing, and Wrestling. This intuitive approach allows them to visualize their progress, serving as motivation, accountability, and guidance.
 
 # Account
 ![cc 4](https://github.com/alejgonza04/Combat-Clinic/assets/149022594/44da0ca6-9077-4a19-930a-e9ef0a43553e)
@@ -49,7 +49,7 @@ Combat Clinic aids practitioners in their venture by enabling them to track thei
 # Sessions
 ![Screenshot 2024-07-02 154942](https://github.com/alejgonza04/Combat-Clinic/assets/149022594/e23f1086-006e-4684-9b39-5741c478f800)
 
-- An overview of all user session data is layed out and organized by date.
+- An overview of all user session data is laid out and organized by date.
 
 # Technique Breakdown Videos
 ![Screenshot 2024-07-02 160050](https://github.com/alejgonza04/Combat-Clinic/assets/149022594/cfd8c71e-d85b-46b5-b834-0f5b1b1e7d62)
@@ -60,7 +60,7 @@ Combat Clinic aids practitioners in their venture by enabling them to track thei
 - This gives the user an opportunity to train, practice, and learn outside of the gym, elevating their game for next time they come to training.
 
 # Project Use
-- This project is a non-profit free to use website meant to help the martial arts community. It was shared with practioners online and fellow training partners at my local gym.
+- This project is a non-profit free to use website meant to help the martial arts community. It was shared with practitioners online and fellow training partners at my local gym.
 - With 50+ registered users, practitioners consistently praise the website for its usefulness in visualizing their progress and enhancing their learning experience.
 
 # Future Development
