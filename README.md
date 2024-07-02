@@ -20,6 +20,8 @@ This project was created out of my love for martial arts and programming. After 
 Combat Clinic aids practitioners in their venture by enabling them to track their progress along the way. By adding their training sessions, they get access to real-time graph analytics of their training hours and martial arts distribution. Additionally, practitioners will have access to a diverse library of technique breakdown videos across various disciplines such as BJJ, Muay Thai, Boxing, and Wrestling. This intuitive approach allows them to visualize their progress, serving as motivation, accountability, and guidance. 
 
 # Account
+![cc 4](https://github.com/alejgonza04/Combat-Clinic/assets/149022594/44da0ca6-9077-4a19-930a-e9ef0a43553e)
+
 - Users are able to create an account that links their progress and session data with their email, stored on a MongoDB database.
 
 # Dashboard
