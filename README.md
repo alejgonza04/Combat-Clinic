@@ -49,7 +49,7 @@ Combat Clinic aids practitioners in their venture by enabling them to track thei
 
 # Technique Breakdown Videos
 ![cc 8](https://github.com/alejgonza04/Combat-Clinic/assets/149022594/7b77e6c5-61ab-4076-baf8-43c4482dbccf)
-![cc 11](https://github.com/alejgonza04/Combat-Clinic/assets/149022594/d9eb3032-39c2-4a54-a0d4-b0b5d482a7c8)
+![Screenshot 2024-07-02 155955](https://github.com/alejgonza04/Combat-Clinic/assets/149022594/2c282aa7-29cc-438c-a34d-76a5016d21a2)
 
 - Users can select a discipline and watch in-depth technique breakdown videos explained by professional and experienced martial artists.
 - This gives the user the opportunity to train, practice, and learn outside of the gym, elevating their game for next time the come to training.
