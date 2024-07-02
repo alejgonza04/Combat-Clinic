@@ -1,3 +1,9 @@
+<br />
+<div align="center">
+  Combat Clinic
+    <img src="![mmaicon](https://github.com/alejgonza04/Combat-Clinic/assets/149022594/6c9f5616-5836-4efa-8971-f8a1e2ffd698)">
+  </a>
+
 ![cc1](https://github.com/alejgonza04/Combat-Clinic/assets/149022594/aa3ae4e4-fc42-4f90-8a8e-6876317b34d1)
 
 # About
