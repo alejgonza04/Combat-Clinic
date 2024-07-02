@@ -52,7 +52,7 @@ Combat Clinic aids practitioners in their venture by enabling them to track thei
 ![Screenshot 2024-07-02 160118](https://github.com/alejgonza04/Combat-Clinic/assets/149022594/4bd424ff-37a1-4cae-8e94-d3cbf8e4119b)
 ![Screenshot 2024-07-02 155955](https://github.com/alejgonza04/Combat-Clinic/assets/149022594/2c282aa7-29cc-438c-a34d-76a5016d21a2)
 
-- Users can select a discipline and watch in-depth technique breakdown videos explained by professional and experienced martial artists.
-- This gives the user the opportunity to train, practice, and learn outside of the gym, elevating their game for next time the come to training.
+- Users can select a discipline pick from a plethora of in-depth technique breakdown videos explained by professional and experienced martial artists.
+- This gives the user an opportunity to train, practice, and learn outside of the gym, elevating their game for next time they come to training.
 
 
