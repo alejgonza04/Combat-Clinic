@@ -33,14 +33,25 @@ Combat Clinic aids practitioners in their venture by enabling them to track thei
 # Add Session
 ![Screenshot 2024-07-02 154638](https://github.com/alejgonza04/Combat-Clinic/assets/149022594/c74cfb97-6927-42e9-b264-3324a03c5751)
 
+- Users are able to add important information from their training sessions, such as what discipline they trained in, how long it was, what techniques they used, how long they sparred, and what day they did it.
+
 # Graph and Chart Data of Progress
 ![Screenshot 2024-07-02 154712](https://github.com/alejgonza04/Combat-Clinic/assets/149022594/e0b789ce-cca3-4122-bdae-6849fe5c78c0)
+
+- The bar graph shows users their training hours over a span of dates.
+- The pie chart shows the user the number of hours they trained each discipline.
+- This vizualization aids users in their journey as they get to see how many hours they are training each day and what disciplines they should prioritize for balance.
 
 # Sessions
 ![Screenshot 2024-07-02 154942](https://github.com/alejgonza04/Combat-Clinic/assets/149022594/e23f1086-006e-4684-9b39-5741c478f800)
 
-# Technique Videos
+- An overview of all user session data is layed out and organized by date.
+
+# Technique Breakdown Videos
 ![cc 8](https://github.com/alejgonza04/Combat-Clinic/assets/149022594/7b77e6c5-61ab-4076-baf8-43c4482dbccf)
 ![cc 11](https://github.com/alejgonza04/Combat-Clinic/assets/149022594/d9eb3032-39c2-4a54-a0d4-b0b5d482a7c8)
+
+- Users can select a discipline and watch in-depth technique breakdown videos explained by professional, experienced martial artists.
+- This gives the user the opportunity to learn outside of the gym, and to practice techniques to bring to training next time.
 
 
