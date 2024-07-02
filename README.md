@@ -60,6 +60,6 @@ Combat Clinic aids practitioners in their venture by enabling them to track thei
 - This gives the user an opportunity to train, practice, and learn outside of the gym, elevating their game for next time they come to training.
 
 # Author
-- Alejandro Gonzalez
+- Alejandro Gonzalez - https://github.com/alejgonza04
 
 
