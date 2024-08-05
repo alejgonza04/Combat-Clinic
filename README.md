@@ -22,7 +22,7 @@ This project was created out of my love for martial arts and programming. After 
 
 # Features
 ### Overview
-Combat Clinic aids practitioners in their journey by enabling them to track their progress. By adding their training sessions, they get access to real-time graph analytics of their training hours and martial arts distribution. Additionally, practitioners have access to a diverse library of technique breakdown videos across various disciplines such as BJJ, Muay Thai, Boxing, and Wrestling. This intuitive approach allows them to visualize their progress, serving as motivation, accountability, and guidance.
+Combat Clinic aids practitioners in their martial arts journey by enabling them to track their progress. By adding their training sessions, they get access to real-time graph analytics of their training hours and martial arts distribution. Additionally, practitioners have access to a diverse library of technique breakdown videos across various disciplines such as BJJ, Muay Thai, Boxing, and Wrestling. This intuitive approach allows them to visualize their progress, serving as motivation, accountability, and guidance.
 
 # Account
 ![Screenshot 2024-08-03 235937](https://github.com/user-attachments/assets/1e1f435f-ed1e-4a4b-87fb-3303444ffaec)
